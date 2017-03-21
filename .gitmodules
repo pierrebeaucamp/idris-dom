@@ -1,0 +1,3 @@
+[submodule "lib/IdrisScript"]
+	path = lib/IdrisScript
+	url = https://github.com/idris-hackers/IdrisScript.git

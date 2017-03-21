@@ -1,0 +1,8 @@
+package web
+
+sourcedir = src
+
+modules = API.Web.DOM.Document
+        , API.Web.DOM.EventTarget
+        , API.Web.DOM.Node
+        , API.Web.DOM.Window

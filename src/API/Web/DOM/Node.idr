@@ -5,5 +5,5 @@ import API.Web.DOM.EventTarget
 %access public export
 %default total
 
-interface EventTarget ty => Node ty where
-  contains : ty -> ty -> Bool
+interface EventTarget node => Node node where
+  contains : node -> node -> Bool
