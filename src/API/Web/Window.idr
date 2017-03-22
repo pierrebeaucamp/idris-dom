@@ -1,6 +1,6 @@
 module API.Web.Window
 
-import API.Web.DOM.Document
+import API.Web.DOM.HTMLDocument
 import IdrisScript
 
 %access public export
@@ -8,10 +8,10 @@ import IdrisScript
 
 record Window where
   constructor NewWindow
-  document : DOMDocument
+  document : Document
 
 defaultWindow : JS_IO Window
 defaultWindow = map NewWindow document where
-  document : JS_IO DOMDocument
-  document = jscall "window.document" (JS_IO JSRef) >>= documentFromJSRef
+  document : JS_IO Document
+  document = jscall "window.document" (JS_IO JSRef)
 
