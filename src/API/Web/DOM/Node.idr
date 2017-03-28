@@ -1,9 +1,12 @@
 module API.Web.DOM.Node
 
-import API.Web.DOM.EventTarget
+import API.Web.DOM.Document
 
 %access public export
 %default total
 
-interface EventTarget node => Node node where
-  contains : node -> node -> Bool
+||| The original interface specification can be found at
+||| https://dom.spec.whatwg.org/#interface-node
+data Node : Type where
+  FromDocument : Document -> Node
+

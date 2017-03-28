@@ -1,7 +1,59 @@
 module API.Web.DOM.EventTarget
 
+import API.Web.DOM.Event
+import API.Web.DOM.EventListener
+import API.Web.DOM.Node
+import API.Web.HTML.Window
+
 %access public export
 %default total
 
-interface EventTarget target where
-  addEventListener : target -> JS_IO ()
+||| An EventTarget represents the target to which an event is dispatched when
+||| something has occured.
+|||
+||| The original interface specification can be found at
+||| https://dom.spec.whatwg.org/#interface-eventtarget
+data EventTarget : Type where
+  FromWindow : Window -> EventTarget
+  FromNode   : Node   -> EventTarget
+
+record EventListenerOptions where
+  constructor NewEventListenerOptions
+  ||| When set to true, capture prevents **callback** from being invoked when
+  ||| the event's `eventPhase` attribute value is `BUBBLING_PHASE`. When false,
+  ||| **callback** will not be invoked when event's `eventPhase` attribute value
+  ||| is `CAPTURING_PHASE`. Either way, **callback** will be invoked if event's
+  ||| `eventPhase` attribute value is `AT_TARGET`. Default is `false`.
+  capture : Bool
+
+||| AddEventListenerOptions sets listener-specific options.
+record AddEventListenerOptions where
+  constructor NewAddEventListenerOptions
+  eventListenerOptions : EventListenerOptions
+  ||| When set to true, passive indicates that the **callback** will not cancel
+  ||| the event by invoked `preventDefault`. This is used to enable performace
+  ||| optimizations described in
+  ||| [§2.7 Observing event listeners](https://dom.spec.whatwg.org/#observing-event-listeners.
+  ||| Default is false.
+  passive : Bool
+  ||| When set to true, once indicates that the **callback** will only be
+  ||| invoked once after which the event listener will be removed.
+  once    : Bool
+
+||| Appends an EventListener for events whose `type` attribute value is *type*.
+addEventListener : (target : EventTarget) -> (type : String) -> EventListener ->
+                   (options : AddEventListenerOptions) -> IO ()
+addEventListener target eventType listener options = ?addEventListener_rhs_1
+
+||| Removes the EventListener in *target*'s list of event listeners with the
+||| same *type* and *options*.
+removeEventListener : (target : EventTarget) -> (type : String) ->
+                      EventListener -> (options: EventListenerOptions) -> IO ()
+removeEventListener target eventType listener options = ?removeEventListener_rhs_1
+
+||| Dispatches a synthetic event *event* to *target* and returns true if either
+||| *event*'s `cancelable` attribute value is false or its `preventDefault`
+||| method was not invoked, and false otherwise.
+dispatchEvent : (target : EventTarget) -> (event : Event) -> IO Bool
+dispatchEvent target event = ?dispatchEvent_rhs_1
+
