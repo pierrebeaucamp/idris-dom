@@ -1,6 +1,7 @@
 module API.Web.DOM.Node
 
 import API.Web.DOM.Document
+import API.Web.DOM.Element
 
 %access public export
 %default total
@@ -9,4 +10,5 @@ import API.Web.DOM.Document
 ||| https://dom.spec.whatwg.org/#interface-node
 data Node : Type where
   FromDocument : Document -> Node
+  FromElement  : Element  -> Node
 
