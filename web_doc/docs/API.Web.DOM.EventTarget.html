@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html><head><title>IdrisDoc: API.Web.DOM.EventTarget</title><link type="text/css" rel="stylesheet" href="../styles.css"></head><body class="namespace"><div class="wrapper"><header><strong>IdrisDoc</strong>: API.Web.DOM.EventTarget<nav><a href="../index.html">Index</a></nav></header><div class="container"><h1>API.Web.DOM.EventTarget</h1><dl class="decls"><dt id="API.Web.DOM.EventTarget.removeEventListener_rhs_1"><span class="name " title="API.Web.DOM.EventTarget.removeEventListener_rhs_1">removeEventListener_rhs_1</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">target</span> : <a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a>) ->
+(<span class="boundvar" title="">eventType</span> : <span class="type" title="String">String</span>) ->
+(<span class="boundvar" title="">listener</span> : <a class="type" title="API.Web.DOM.EventListener.EventListener" href="API.Web.DOM.EventListener.html#API.Web.DOM.EventListener.EventListener">EventListener</a>) ->
+(<span class="boundvar" title="">options</span> : <a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a>) ->
+<a class="type" title="IO&#39;" href="[builtins].html#IO&#39;">IO&#39;</a> (<a class="constructor" title="MkFFI" href="[builtins].html#MkFFI">MkFFI</a> <a class="type" title="FFI_C.C_Types" href="FFI_C.html#FFI_C.C_Types">C_Types</a>
+<span class="type" title="String">String</span>
+<span class="type" title="String">String</span>)
+<a class="type" title="Unit" href="[builtins].html#Unit">()</a></span></dt><dd></dd><dt id="API.Web.DOM.EventTarget.removeEventListener"><span class="name function" title="API.Web.DOM.EventTarget.removeEventListener">removeEventListener</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">target</span> : <a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a>) ->
+(<span class="boundvar" title="">type</span> : <span class="type" title="String">String</span>) ->
+<a class="type" title="API.Web.DOM.EventListener.EventListener" href="API.Web.DOM.EventListener.html#API.Web.DOM.EventListener.EventListener">EventListener</a> ->
+(<span class="boundvar" title="">options</span> : <a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a>) ->
+<a class="function" title="IO" href="[builtins].html#IO">IO</a> <a class="type" title="Unit" href="[builtins].html#Unit">()</a></span></dt><dd><p>Removes the EventListener in <em>target</em>'s list of event listeners with the<br />
+same <em>type</em> and <em>options</em>.</p>
+</dd><dt id="API.Web.DOM.EventTarget.dispatchEvent_rhs_1"><span class="name " title="API.Web.DOM.EventTarget.dispatchEvent_rhs_1">dispatchEvent_rhs_1</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">target</span> : <a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a>) ->
+(<span class="boundvar" title="">event</span> : <a class="type" title="API.Web.DOM.Event.Event" href="API.Web.DOM.Event.html#API.Web.DOM.Event.Event">Event</a>) ->
+<a class="type" title="IO&#39;" href="[builtins].html#IO&#39;">IO&#39;</a> (<a class="constructor" title="MkFFI" href="[builtins].html#MkFFI">MkFFI</a> <a class="type" title="FFI_C.C_Types" href="FFI_C.html#FFI_C.C_Types">C_Types</a>
+<span class="type" title="String">String</span>
+<span class="type" title="String">String</span>)
+<a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd></dd><dt id="API.Web.DOM.EventTarget.dispatchEvent"><span class="name function" title="API.Web.DOM.EventTarget.dispatchEvent">dispatchEvent</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">target</span> : <a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a>) ->
+(<span class="boundvar" title="">event</span> : <a class="type" title="API.Web.DOM.Event.Event" href="API.Web.DOM.Event.html#API.Web.DOM.Event.Event">Event</a>) ->
+<a class="function" title="IO" href="[builtins].html#IO">IO</a> <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd><p>Dispatches a synthetic event <em>event</em> to <em>target</em> and returns true if either<br />
+<em>event</em>'s <code>cancelable</code> attribute value is false or its <code>preventDefault</code><br />
+method was not invoked, and false otherwise.</p>
+</dd><dt id="API.Web.DOM.EventTarget.addEventListener_rhs_1"><span class="name " title="API.Web.DOM.EventTarget.addEventListener_rhs_1">addEventListener_rhs_1</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">target</span> : <a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a>) ->
+(<span class="boundvar" title="">eventType</span> : <span class="type" title="String">String</span>) ->
+(<span class="boundvar" title="">listener</span> : <a class="type" title="API.Web.DOM.EventListener.EventListener" href="API.Web.DOM.EventListener.html#API.Web.DOM.EventListener.EventListener">EventListener</a>) ->
+(<span class="boundvar" title="">options</span> : <a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a>) ->
+<a class="type" title="IO&#39;" href="[builtins].html#IO&#39;">IO&#39;</a> (<a class="constructor" title="MkFFI" href="[builtins].html#MkFFI">MkFFI</a> <a class="type" title="FFI_C.C_Types" href="FFI_C.html#FFI_C.C_Types">C_Types</a>
+<span class="type" title="String">String</span>
+<span class="type" title="String">String</span>)
+<a class="type" title="Unit" href="[builtins].html#Unit">()</a></span></dt><dd></dd><dt id="API.Web.DOM.EventTarget.addEventListener"><span class="name function" title="API.Web.DOM.EventTarget.addEventListener">addEventListener</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">target</span> : <a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a>) ->
+(<span class="boundvar" title="">type</span> : <span class="type" title="String">String</span>) ->
+<a class="type" title="API.Web.DOM.EventListener.EventListener" href="API.Web.DOM.EventListener.html#API.Web.DOM.EventListener.EventListener">EventListener</a> ->
+(<span class="boundvar" title="">options</span> : <a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a>) ->
+<a class="function" title="IO" href="[builtins].html#IO">IO</a> <a class="type" title="Unit" href="[builtins].html#Unit">()</a></span></dt><dd><p>Appends an EventListener for events whose <code>type</code> attribute value is <em>type</em>.</p>
+</dd><dt id="API.Web.DOM.EventTarget.NewEventListenerOptions"><span class="name constructor" title="API.Web.DOM.EventTarget.NewEventListenerOptions">NewEventListenerOptions</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="documented boundvar" title="When set to true, capture prevents &lt;strong&gt;callback&lt;/strong&gt; from being invoked when&lt;br /&gt;
+the event&#39;s &lt;code&gt;eventPhase&lt;/code&gt; attribute value is &lt;code&gt;BUBBLING_PHASE&lt;/code&gt;. When false,&lt;br /&gt;
+&lt;strong&gt;callback&lt;/strong&gt; will not be invoked when event&#39;s &lt;code&gt;eventPhase&lt;/code&gt; attribute value&lt;br /&gt;
+is &lt;code&gt;CAPTURING_PHASE&lt;/code&gt;. Either way, &lt;strong&gt;callback&lt;/strong&gt; will be invoked if event&#39;s&lt;br /&gt;
+&lt;code&gt;eventPhase&lt;/code&gt; attribute value is &lt;code&gt;AT_TARGET&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.">capture</span> : <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
+<a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a></span></dt><dd><dl><dt>capture</dt><dd><p>When set to true, capture prevents <strong>callback</strong> from being invoked when<br />
+the event's <code>eventPhase</code> attribute value is <code>BUBBLING_PHASE</code>. When false,<br />
+<strong>callback</strong> will not be invoked when event's <code>eventPhase</code> attribute value<br />
+is <code>CAPTURING_PHASE</code>. Either way, <strong>callback</strong> will be invoked if event's<br />
+<code>eventPhase</code> attribute value is <code>AT_TARGET</code>. Default is <code>false</code>.</p>
+</dd></dl></dd><dt id="API.Web.DOM.EventTarget.NewAddEventListenerOptions"><span class="name constructor" title="API.Web.DOM.EventTarget.NewAddEventListenerOptions">NewAddEventListenerOptions</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">eventListenerOptions</span> : <a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a>) ->
+(<span class="documented boundvar" title="When set to true, passive indicates that the &lt;strong&gt;callback&lt;/strong&gt; will not cancel&lt;br /&gt;
+the event by invoked &lt;code&gt;preventDefault&lt;/code&gt;. This is used to enable performace&lt;br /&gt;
+optimizations described in&lt;br /&gt;
+[§2.7 Observing event listeners](&lt;a href=&quot;https://dom.spec.whatwg.org/#observing-event-listeners&quot;&gt;https://dom.spec.whatwg.org/#observing-event-listeners&lt;/a&gt;.&lt;br /&gt;
+Default is false.">passive</span> : <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
+(<span class="documented boundvar" title="When set to true, once indicates that the &lt;strong&gt;callback&lt;/strong&gt; will only be&lt;br /&gt;
+invoked once after which the event listener will be removed.">once</span> : <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
+<a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a></span></dt><dd><dl><dt>passive</dt><dd><p>When set to true, passive indicates that the <strong>callback</strong> will not cancel<br />
+the event by invoked <code>preventDefault</code>. This is used to enable performace<br />
+optimizations described in<br />
+[§2.7 Observing event listeners](<a href="https://dom.spec.whatwg.org/#observing-event-listeners">https://dom.spec.whatwg.org/#observing-event-listeners</a>.<br />
+Default is false.</p>
+</dd><dt>once</dt><dd><p>When set to true, once indicates that the <strong>callback</strong> will only be<br />
+invoked once after which the event listener will be removed.</p>
+</dd></dl></dd><dt id="API.Web.DOM.EventTarget.EventTarget"><span class="word">data&nbsp;</span><span class="name type" title="API.Web.DOM.EventTarget.EventTarget">EventTarget</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><span class="type" title="Type">Type</span></span></dt><dd><p>An EventTarget represents the target to which an event is dispatched when<br />
+something has occured.</p>
+<p>The original interface specification can be found at<br />
+<a href="https://dom.spec.whatwg.org/#interface-eventtarget">https://dom.spec.whatwg.org/#interface-eventtarget</a></p>
+<dl class="decls"><dt id="API.Web.DOM.EventTarget.FromWindow"><span class="name constructor" title="API.Web.DOM.EventTarget.FromWindow">FromWindow</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="API.Web.HTML.Window.Window" href="API.Web.HTML.Window.html#API.Web.HTML.Window.Window">Window</a> ->
+<a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a></span></dt><dd></dd><dt id="API.Web.DOM.EventTarget.FromNode"><span class="name constructor" title="API.Web.DOM.EventTarget.FromNode">FromNode</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="API.Web.DOM.Node.Node" href="API.Web.DOM.Node.html#API.Web.DOM.Node.Node">Node</a> ->
+<a class="type" title="API.Web.DOM.EventTarget.EventTarget" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventTarget">EventTarget</a></span></dt><dd></dd></dl></dd><dt id="API.Web.DOM.EventTarget.EventListenerOptions"><span class="word">record&nbsp;</span><span class="name type" title="API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</span><span class="type">&nbsp;</span></dt><dd><dl class="decls"><dt id="API.Web.DOM.EventTarget.NewEventListenerOptions"><span class="name constructor" title="API.Web.DOM.EventTarget.NewEventListenerOptions">NewEventListenerOptions</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="documented boundvar" title="When set to true, capture prevents &lt;strong&gt;callback&lt;/strong&gt; from being invoked when&lt;br /&gt;
+the event&#39;s &lt;code&gt;eventPhase&lt;/code&gt; attribute value is &lt;code&gt;BUBBLING_PHASE&lt;/code&gt;. When false,&lt;br /&gt;
+&lt;strong&gt;callback&lt;/strong&gt; will not be invoked when event&#39;s &lt;code&gt;eventPhase&lt;/code&gt; attribute value&lt;br /&gt;
+is &lt;code&gt;CAPTURING_PHASE&lt;/code&gt;. Either way, &lt;strong&gt;callback&lt;/strong&gt; will be invoked if event&#39;s&lt;br /&gt;
+&lt;code&gt;eventPhase&lt;/code&gt; attribute value is &lt;code&gt;AT_TARGET&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.">capture</span> : <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
+<a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a></span></dt><dd><dl><dt>capture</dt><dd><p>When set to true, capture prevents <strong>callback</strong> from being invoked when<br />
+the event's <code>eventPhase</code> attribute value is <code>BUBBLING_PHASE</code>. When false,<br />
+<strong>callback</strong> will not be invoked when event's <code>eventPhase</code> attribute value<br />
+is <code>CAPTURING_PHASE</code>. Either way, <strong>callback</strong> will be invoked if event's<br />
+<code>eventPhase</code> attribute value is <code>AT_TARGET</code>. Default is <code>false</code>.</p>
+</dd></dl></dd></dl><dl class="decls"><dt id="API.Web.DOM.EventTarget.EventListenerOptions.capture"><span class="name function" title="API.Web.DOM.EventTarget.EventListenerOptions.capture">capture</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a>) ->
+<a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd><p>When set to true, capture prevents <strong>callback</strong> from being invoked when<br />
+the event's <code>eventPhase</code> attribute value is <code>BUBBLING_PHASE</code>. When false,<br />
+<strong>callback</strong> will not be invoked when event's <code>eventPhase</code> attribute value<br />
+is <code>CAPTURING_PHASE</code>. Either way, <strong>callback</strong> will be invoked if event's<br />
+<code>eventPhase</code> attribute value is <code>AT_TARGET</code>. Default is <code>false</code>.</p>
+</dd></dl></dd><dt id="API.Web.DOM.EventTarget.AddEventListenerOptions"><span class="word">record&nbsp;</span><span class="name type" title="API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</span><span class="type">&nbsp;</span></dt><dd><p>AddEventListenerOptions sets listener-specific options.</p>
+<dl class="decls"><dt id="API.Web.DOM.EventTarget.NewAddEventListenerOptions"><span class="name constructor" title="API.Web.DOM.EventTarget.NewAddEventListenerOptions">NewAddEventListenerOptions</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">eventListenerOptions</span> : <a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a>) ->
+(<span class="documented boundvar" title="When set to true, passive indicates that the &lt;strong&gt;callback&lt;/strong&gt; will not cancel&lt;br /&gt;
+the event by invoked &lt;code&gt;preventDefault&lt;/code&gt;. This is used to enable performace&lt;br /&gt;
+optimizations described in&lt;br /&gt;
+[§2.7 Observing event listeners](&lt;a href=&quot;https://dom.spec.whatwg.org/#observing-event-listeners&quot;&gt;https://dom.spec.whatwg.org/#observing-event-listeners&lt;/a&gt;.&lt;br /&gt;
+Default is false.">passive</span> : <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
+(<span class="documented boundvar" title="When set to true, once indicates that the &lt;strong&gt;callback&lt;/strong&gt; will only be&lt;br /&gt;
+invoked once after which the event listener will be removed.">once</span> : <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
+<a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a></span></dt><dd><dl><dt>passive</dt><dd><p>When set to true, passive indicates that the <strong>callback</strong> will not cancel<br />
+the event by invoked <code>preventDefault</code>. This is used to enable performace<br />
+optimizations described in<br />
+[§2.7 Observing event listeners](<a href="https://dom.spec.whatwg.org/#observing-event-listeners">https://dom.spec.whatwg.org/#observing-event-listeners</a>.<br />
+Default is false.</p>
+</dd><dt>once</dt><dd><p>When set to true, once indicates that the <strong>callback</strong> will only be<br />
+invoked once after which the event listener will be removed.</p>
+</dd></dl></dd></dl><dl class="decls"><dt id="API.Web.DOM.EventTarget.AddEventListenerOptions.eventListenerOptions"><span class="name function" title="API.Web.DOM.EventTarget.AddEventListenerOptions.eventListenerOptions">eventListenerOptions</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a>) ->
+<a class="type" title="API.Web.DOM.EventTarget.EventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.EventListenerOptions">EventListenerOptions</a></span></dt><dd></dd><dt id="API.Web.DOM.EventTarget.AddEventListenerOptions.passive"><span class="name function" title="API.Web.DOM.EventTarget.AddEventListenerOptions.passive">passive</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a>) ->
+<a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd><p>When set to true, passive indicates that the <strong>callback</strong> will not cancel<br />
+the event by invoked <code>preventDefault</code>. This is used to enable performace<br />
+optimizations described in<br />
+[§2.7 Observing event listeners](<a href="https://dom.spec.whatwg.org/#observing-event-listeners">https://dom.spec.whatwg.org/#observing-event-listeners</a>.<br />
+Default is false.</p>
+</dd><dt id="API.Web.DOM.EventTarget.AddEventListenerOptions.once"><span class="name function" title="API.Web.DOM.EventTarget.AddEventListenerOptions.once">once</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="API.Web.DOM.EventTarget.AddEventListenerOptions" href="API.Web.DOM.EventTarget.html#API.Web.DOM.EventTarget.AddEventListenerOptions">AddEventListenerOptions</a>) ->
+<a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd><p>When set to true, once indicates that the <strong>callback</strong> will only be<br />
+invoked once after which the event listener will be removed.</p>
+</dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>
