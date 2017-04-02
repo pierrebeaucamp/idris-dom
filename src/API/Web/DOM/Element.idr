@@ -29,7 +29,9 @@ record Element where
 
 ||| elementFromPointer is a helper function for easily creating Elements from
 ||| JavaScript references.
-elementFromPointer : JSRef -> JS_IO $ Maybe Element
+|||
+||| @ ref A pointer to an element
+elementFromPointer : (ref : JSRef) -> JS_IO $ Maybe Element
 elementFromPointer ref = case !maybeLocalName of
     Nothing          => pure Nothing
     (Just localName) => pure $ Just $ New localName

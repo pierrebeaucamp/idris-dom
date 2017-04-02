@@ -33,7 +33,9 @@ record Document where
 
 ||| documentFromPointer is a helper function for easily creating Documents from
 ||| JavaScript references.
-documentFromPointer : JSRef -> JS_IO $ Maybe Document
+|||
+||| @ self a pointer to a document
+documentFromPointer : (self : JSRef) -> JS_IO $ Maybe Document
 documentFromPointer self = case !maybeContentType of
     Nothing            => pure Nothing
     (Just contentType) => pure $ Just $ New contentType self

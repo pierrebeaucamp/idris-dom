@@ -27,7 +27,9 @@ data NonElementParentNode : Type where
   FromDocument : Document -> NonElementParentNode
 
 ||| Returns the first element within a *node*'s descendatns whose ID is
-||| *elmId*.
+||| *elm*.
+|||
+||| @ elm the ID of an element to fetch
 getElementById : NonElementParentNode -> (elm : String) -> JS_IO $ Maybe Element
 getElementById (FromDocument (New _ docRef)) elm = join $ elementFromPointer <$>
   jscall "%0.getElementById(%1)" (JSRef -> String -> JS_IO JSRef) docRef elm

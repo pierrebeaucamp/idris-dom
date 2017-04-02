@@ -1,3 +1,5 @@
+.PHONY: docs
+
 default:
 	idris -p idrisscript -i src
 
