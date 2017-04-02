@@ -54,35 +54,3 @@ record AddEventListenerOptions where
   ||| invoked once after which the event listener will be removed.
   once    : Bool
 
-||| Appends an EventListener for events whose `type` attribute value is *type*.
-|||
-||| @ target   the event target
-||| @ type     the type of event the eventlistener is subscribing to
-||| @ listener the eventlistener itself
-||| @ options  the options object for the eventlistener
-addEventListener : (target : EventTarget) -> (type : String) ->
-                   (listener : EventListener) ->
-                   (options : AddEventListenerOptions) -> IO ()
-addEventListener target eventType listener options = ?addEventListener_rhs_1
-
-||| Removes the EventListener in *target*'s list of event listeners with the
-||| same *type* and *options*.
-|||
-||| @ target   the event target
-||| @ type     the type of event the eventlistener is subscribing to
-||| @ listener the eventlistener itself
-||| @ options  the options object for the eventlistener
-removeEventListener : (target : EventTarget) -> (type : String) ->
-                      (listener : EventListener) ->
-                      (options: EventListenerOptions) -> IO ()
-removeEventListener target eventType listener options = ?removeEventListener_rhs_1
-
-||| Dispatches a synthetic event *event* to *target* and returns true if either
-||| *event*'s `cancelable` attribute value is false or its `preventDefault`
-||| method was not invoked, and false otherwise.
-|||
-||| @ target the event target
-||| @ event  the event to dispatch
-dispatchEvent : (target : EventTarget) -> (event : Event) -> IO Bool
-dispatchEvent target event = ?dispatchEvent_rhs_1
-
