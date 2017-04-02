@@ -33,8 +33,16 @@ record Document where
 
 ||| documentFromPointer is a helper function for easily creating Documents from
 ||| JavaScript references.
-documentFromPointer : JSRef -> JS_IO Document
-documentFromPointer self = New <$> contentType <*> pure self where
-  contentType : JS_IO String
-  contentType = jscall "%0.contentType" (JSRef -> JS_IO String) self
+documentFromPointer : JSRef -> JS_IO $ Maybe Document
+documentFromPointer self = case !maybeContentType of
+    Nothing            => pure Nothing
+    (Just contentType) => pure $ Just $ New contentType self
+  where
+    maybeContentType : JS_IO $ Maybe String
+    maybeContentType = let
+        getContentType = jscall "%0.contentType" (JSRef -> JS_IO JSRef) self
+      in
+        case !(IdrisScript.pack !getContentType) of
+            (JSString ** str) => pure $ Just $ fromJS str
+            _                 => pure Nothing
 

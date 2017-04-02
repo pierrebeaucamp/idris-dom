@@ -28,7 +28,7 @@ data NonElementParentNode : Type where
 
 ||| Returns the first element within a *node*'s descendatns whose ID is
 ||| *elmId*.
-getElementById : NonElementParentNode -> (elmId : String) -> JS_IO Element
-getElementById (FromDocument (New _ docRef)) elmId = join $
-  map elementFromPointer $
-  jscall "%0.getElementById(%1)" (JSRef -> String -> JS_IO JSRef) docRef elmId
+getElementById : NonElementParentNode -> (elm : String) -> JS_IO $ Maybe Element
+getElementById (FromDocument (New _ docRef)) elm = join $ elementFromPointer <$>
+  jscall "%0.getElementById(%1)" (JSRef -> String -> JS_IO JSRef) docRef elm
+

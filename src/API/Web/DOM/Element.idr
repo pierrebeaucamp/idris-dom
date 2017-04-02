@@ -29,6 +29,16 @@ record Element where
 
 ||| elementFromPointer is a helper function for easily creating Elements from
 ||| JavaScript references.
-elementFromPointer : JSRef -> JS_IO Element
-elementFromPointer ref = map New $
-                         jscall "%0.localName" (JSRef -> JS_IO String) ref
+elementFromPointer : JSRef -> JS_IO $ Maybe Element
+elementFromPointer ref = case !maybeLocalName of
+    Nothing          => pure Nothing
+    (Just localName) => pure $ Just $ New localName
+  where
+    maybeLocalName : JS_IO $ Maybe String
+    maybeLocalName = let
+        getLocalName = jscall "%0.localName" (JSRef -> JS_IO JSRef) ref
+      in
+        case !(IdrisScript.pack !getLocalName) of
+             (JSString ** str) => pure $ Just $ fromJS str
+             _                 => pure Nothing
+
