@@ -15,7 +15,9 @@
 module API.Web.DOM.NonElementParentNode
 
 import API.Web.DOM.Document
+import API.Web.DOM.DocumentType
 import API.Web.DOM.Element
+import API.Web.HTML.Document
 import IdrisScript
 
 %access public export
@@ -24,13 +26,18 @@ import IdrisScript
 ||| The original specification of NonElementParentNode can be found at
 ||| https://dom.spec.whatwg.org/#interface-nonelementparentnode
 data NonElementParentNode : Type where
-  FromDocument : Document -> NonElementParentNode
+  FromDocument : API.Web.DOM.Document.Document -> NonElementParentNode
 
 ||| Returns the first element within a *node*'s descendatns whose ID is
 ||| *elm*.
 |||
 ||| @ elm the ID of an element to fetch
 getElementById : NonElementParentNode -> (elm : String) -> JS_IO $ Maybe Element
-getElementById (FromDocument (New _ docRef)) elm = join $ elementFromPointer <$>
-  jscall "%0.getElementById(%1)" (JSRef -> String -> JS_IO JSRef) docRef elm
+getElementById (FromDocument document) elm = case document of
+    (FromHTMLDocument (New _ ref)) => getElementById' ref elm
+    (New _  ref)                   => getElementById' ref elm
+  where
+    getElementById' : (ref : JSRef) -> (elm : String) -> JS_IO $ Maybe Element
+    getElementById' ref x = join $ elementFromPointer <$>
+      jscall "%0.getElementById(%1)" (JSRef -> String -> JS_IO JSRef) ref elm
 

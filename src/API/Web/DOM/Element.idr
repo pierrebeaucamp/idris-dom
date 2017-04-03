@@ -14,6 +14,8 @@
 
 module API.Web.DOM.Element
 
+import API.Web.HTML.HTMLElement
+import API.Web.Infra.Namespaces
 import IdrisScript
 
 %access public export
@@ -23,19 +25,33 @@ import IdrisScript
 |||
 ||| The original specification can be found at
 ||| https://dom.spec.whatwg.org/#interface-element
-record Element where
-  constructor New
-  localName : String
+data Element : Type where
+  FromHTMLElement : HTMLElement          -> Element
+  New             : (localName : String)-> Element
 
 ||| elementFromPointer is a helper function for easily creating Elements from
 ||| JavaScript references.
 |||
 ||| @ ref A pointer to an element
 elementFromPointer : (ref : JSRef) -> JS_IO $ Maybe Element
-elementFromPointer ref = case !maybeLocalName of
-    Nothing          => pure Nothing
-    (Just localName) => pure $ Just $ New localName
+elementFromPointer ref = case !maybeNamespace of
+    Nothing   => pure Nothing
+    (Just ns) => case !maybeLocalName of
+      Nothing          => pure Nothing
+      (Just localName) => case ns of
+        API.Web.Infra.Namespaces.html => case !(htmlElementFromPointer ref) of
+          Nothing            => pure Nothing
+          (Just htmlElement) => pure $ Just $ FromHTMLElement htmlElement
+        _                             => pure $ Just $ New localName
   where
+    maybeNamespace : JS_IO $ Maybe String
+    maybeNamespace = let
+        getNameSpace = jscall "%0.namespaceURI" (JSRef -> JS_IO JSRef) ref
+      in
+        case !(IdrisScript.pack !getNameSpace) of
+             (JSString ** str) => pure $ Just $ fromJS str
+             _                 => pure Nothing
+
     maybeLocalName : JS_IO $ Maybe String
     maybeLocalName = let
         getLocalName = jscall "%0.localName" (JSRef -> JS_IO JSRef) ref

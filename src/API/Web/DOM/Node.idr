@@ -15,6 +15,7 @@
 module API.Web.DOM.Node
 
 import API.Web.DOM.Document
+import API.Web.DOM.DocumentType
 import API.Web.DOM.Element
 
 %access public export
@@ -23,6 +24,7 @@ import API.Web.DOM.Element
 ||| The original interface specification can be found at
 ||| https://dom.spec.whatwg.org/#interface-node
 data Node : Type where
-  FromDocument : Document -> Node
-  FromElement  : Element  -> Node
+  FromDocument     : Document     -> Node
+  FromDocumentType : DocumentType -> Node
+  FromElement      : Element      -> Node
 

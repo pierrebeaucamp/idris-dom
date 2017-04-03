@@ -3,22 +3,13 @@
 <a class="function" title="JS_IO" href="[builtins].html#JS_IO">JS_IO</a> (<a class="type" title="Prelude.Maybe.Maybe" href="Prelude.Maybe.html#Prelude.Maybe.Maybe">Maybe</a> <a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a>)</span></dt><dd><p>documentFromPointer is a helper function for easily creating Documents from<br />
 JavaScript references.</p>
 <dl><dt>self</dt><dd><p>a pointer to a document</p>
-</dd></dl></dd><dt id="API.Web.DOM.Document.New"><span class="name constructor" title="API.Web.DOM.Document.New">New</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">contentType</span> : <span class="type" title="String">String</span>) ->
-(<span class="documented boundvar" title="self is a non standard field which is used to facilitate integration with&lt;br /&gt;
-Javascript.">self</span> : <a class="type" title="Ptr" href="[builtins].html#Ptr">Ptr</a>) ->
-<a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a></span></dt><dd><dl><dt>self</dt><dd><p>self is a non standard field which is used to facilitate integration with<br />
-Javascript.</p>
-</dd></dl></dd><dt id="API.Web.DOM.Document.Document"><span class="word">record&nbsp;</span><span class="name type" title="API.Web.DOM.Document.Document">Document</span><span class="type">&nbsp;</span></dt><dd><p>A Document represents any web page loaded in the browser and servers as an<br />
+</dd></dl></dd><dt id="API.Web.DOM.Document.Document"><span class="word">data&nbsp;</span><span class="name type" title="API.Web.DOM.Document.Document">Document</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><span class="type" title="Type">Type</span></span></dt><dd><p>A Document represents any web page loaded in the browser and servers as an<br />
 entry point into the web page's content. which is the DOM tree.</p>
 <p>The original interface specification can be found at<br />
 <a href="https://dom.spec.whatwg.org/#interface-document">https://dom.spec.whatwg.org/#interface-document</a></p>
-<dl class="decls"><dt id="API.Web.DOM.Document.New"><span class="name constructor" title="API.Web.DOM.Document.New">New</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">contentType</span> : <span class="type" title="String">String</span>) ->
-(<span class="documented boundvar" title="self is a non standard field which is used to facilitate integration with&lt;br /&gt;
-Javascript.">self</span> : <a class="type" title="Ptr" href="[builtins].html#Ptr">Ptr</a>) ->
-<a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a></span></dt><dd><dl><dt>self</dt><dd><p>self is a non standard field which is used to facilitate integration with<br />
-Javascript.</p>
-</dd></dl></dd></dl><dl class="decls"><dt id="API.Web.DOM.Document.Document.contentType"><span class="name function" title="API.Web.DOM.Document.Document.contentType">contentType</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a>) ->
-<span class="type" title="String">String</span></span></dt><dd></dd><dt id="API.Web.DOM.Document.Document.self"><span class="name function" title="API.Web.DOM.Document.Document.self">self</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">rec</span> : <a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a>) ->
-<a class="type" title="Ptr" href="[builtins].html#Ptr">Ptr</a></span></dt><dd><p>self is a non standard field which is used to facilitate integration with<br />
+<dl class="decls"><dt id="API.Web.DOM.Document.FromHTMLDocument"><span class="name constructor" title="API.Web.DOM.Document.FromHTMLDocument">FromHTMLDocument</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="API.Web.HTML.Document.Document" href="API.Web.HTML.Document.html#API.Web.HTML.Document.Document">Document</a> ->
+<a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a></span></dt><dd></dd><dt id="API.Web.DOM.Document.New"><span class="name constructor" title="API.Web.DOM.Document.New">New</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="boundvar" title="">docType</span> : <a class="type" title="API.Web.DOM.Node.DocumentType" href="API.Web.DOM.Node.html#API.Web.DOM.Node.DocumentType">DocumentType</a>) ->
+(<span class="boundvar" title="">self</span> : <a class="type" title="Ptr" href="[builtins].html#Ptr">Ptr</a>) ->
+<a class="type" title="API.Web.DOM.Document.Document" href="API.Web.DOM.Document.html#API.Web.DOM.Document.Document">Document</a></span></dt><dd><p>self is a non standard field which is used to facilitate integration with<br />
 Javascript.</p>
 </dd></dl></dd></dl></div></div><footer>Produced by IdrisDoc version 1.0</footer></body></html>

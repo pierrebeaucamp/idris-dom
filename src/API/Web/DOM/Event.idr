@@ -26,3 +26,4 @@ record Event where
   constructor New
   ||| The type of *Event*, e.g. "`click`", "`hashchange`", or "`submit`"
   type : String
+

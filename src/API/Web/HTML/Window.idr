@@ -14,7 +14,7 @@
 
 module API.Web.HTML.Window
 
-import API.Web.DOM.Document
+import API.Web.DOM.DocumentType
 import API.Web.HTML.Document
 import IdrisScript
 
@@ -42,7 +42,8 @@ defaultWindow = case !maybeDocument of
     maybeDocument = let
         docRef = join $ jscall "%0.document" (JSRef -> JS_IO JSRef) <$> self
       in
-        case !(join $ map documentFromPointer docRef) of
-             Nothing    => pure Nothing
-             (Just doc) => pure $ Just $ API.Web.HTML.Document.New doc
+        case !(join $ map documentTypeFromPointer self) of
+             Nothing        => pure Nothing
+             (Just docType) => map Just $ API.Web.HTML.Document.New <$>
+                               pure docType <*> docRef
 

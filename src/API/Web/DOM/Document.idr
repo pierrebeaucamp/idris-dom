@@ -14,6 +14,8 @@
 
 module API.Web.DOM.Document
 
+import API.Web.DOM.DocumentType
+import API.Web.HTML.Document
 import IdrisScript
 
 %access public export
@@ -24,27 +26,31 @@ import IdrisScript
 |||
 ||| The original interface specification can be found at
 ||| https://dom.spec.whatwg.org/#interface-document
-record Document where
-  constructor New
-  contentType : String
+data Document : Type where
+  FromHTMLDocument : API.Web.HTML.Document.Document ->
+                     API.Web.DOM.Document.Document
   ||| self is a non standard field which is used to facilitate integration with
   ||| Javascript.
-  self        : Ptr
+  New : (docType : DocumentType) -> (self : Ptr) ->
+        API.Web.DOM.Document.Document
 
 ||| documentFromPointer is a helper function for easily creating Documents from
 ||| JavaScript references.
 |||
 ||| @ self a pointer to a document
-documentFromPointer : (self : JSRef) -> JS_IO $ Maybe Document
-documentFromPointer self = case !maybeContentType of
-    Nothing            => pure Nothing
-    (Just contentType) => pure $ Just $ New contentType self
+documentFromPointer : (self : JSRef) ->
+                      JS_IO $ Maybe API.Web.DOM.Document.Document
+documentFromPointer self = case !maybeDocType of
+    Nothing        => pure Nothing
+    (Just docType) => case docType of
+      -- A document is said to be an *XML document* if its type is "`xml`", and
+      -- an *HTML document* otherwise.
+      -- NOTE: This could be a good use case for dependent types
+      (New "xml" _ _) => pure $ Just $ New docType self
+      (New _     _ _) => pure $ Just $ FromHTMLDocument $
+                         API.Web.HTML.Document.New docType self
   where
-    maybeContentType : JS_IO $ Maybe String
-    maybeContentType = let
-        getContentType = jscall "%0.contentType" (JSRef -> JS_IO JSRef) self
-      in
-        case !(IdrisScript.pack !getContentType) of
-            (JSString ** str) => pure $ Just $ fromJS str
-            _                 => pure Nothing
+    maybeDocType : JS_IO $ Maybe DocumentType
+    maybeDocType = join $ map documentTypeFromPointer $
+                   jscall "%0.docType" (JSRef -> JS_IO JSRef) self
 

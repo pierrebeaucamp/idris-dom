@@ -12,22 +12,29 @@
 --    See the License for the specific language governing permissions and
 --    limitations under the License.
 
-module API.Web.HTML.Document
-
-import API.Web.DOM.DocumentType
+||| The original specification can be found at
+||| https://infra.spec.whatwg.org/#namespaces
+module API.Web.Infra.Namespaces
 
 %access public export
 %default total
 
-||| The WHATWG DOM standard defines a `Document` interface, which this extends
-||| significantly.
-|||
-||| The original interface specification can be found at
-||| https://html.spec.whatwg.org/multipage/browsers.html#the-window-object
-record Document where
-  constructor New
-  docType : DocumentType
-  ||| self is a non standard field which is used to facilitate integration with
-  ||| Javascript.
-  self    : Ptr
+html : String
+html = "http://www.w3.org/1999/xhtml"
+
+mathML : String
+mathML = "http://www.w3.org/1998/Math/MathML"
+
+svg : String
+svg = "http://www.w3.org/2000/svg"
+
+xLink : String
+xLink = "http://www.w3.org/1999/xlink"
+
+xml : String
+xml = "http://www.w3.org/XML/1998/namespace"
+
+xmlns : String
+xmlns = "http://www.w3.org/2000/xmlns/"
+
 
