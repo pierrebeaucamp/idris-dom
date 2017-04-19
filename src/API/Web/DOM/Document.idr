@@ -26,29 +26,32 @@ import IdrisScript
 |||
 ||| The original interface specification can be found at
 ||| https://dom.spec.whatwg.org/#interface-document
-data Document : Type where
-  FromHTMLDocument : API.Web.HTML.Document.Document ->
-                     API.Web.DOM.Document.Document
+data Document : DocumentType -> Type where
+  FromHTMLDocument : (docType : DocumentType) ->
+                     API.Web.HTML.Document.Document ->
+                     API.Web.DOM.Document.Document docType
+
   ||| self is a non standard field which is used to facilitate integration with
   ||| Javascript.
   New : (docType : DocumentType) -> (self : Ptr) ->
-        API.Web.DOM.Document.Document
+        API.Web.DOM.Document.Document docType
 
 ||| documentFromPointer is a helper function for easily creating Documents from
 ||| JavaScript references.
 |||
 ||| @ self a pointer to a document
 documentFromPointer : (self : JSRef) ->
-                      JS_IO $ Maybe API.Web.DOM.Document.Document
+                      JS_IO $ Maybe $ API.Web.DOM.Document.Document docType
 documentFromPointer self = case !maybeDocType of
     Nothing        => pure Nothing
     (Just docType) => case docType of
+
       -- A document is said to be an *XML document* if its type is "`xml`", and
       -- an *HTML document* otherwise.
-      -- NOTE: This could be a good use case for dependent types
-      (New "xml" _ _) => pure $ Just $ New docType self
-      (New _     _ _) => pure $ Just $ FromHTMLDocument $
-                         API.Web.HTML.Document.New docType self
+      (New "xml" _ _) => pure $ Just $ New _ self
+      (New _     _ _) => pure $ Just $ FromHTMLDocument _ $
+                         API.Web.HTML.Document.New self
+
   where
     maybeDocType : JS_IO $ Maybe DocumentType
     maybeDocType = join $ map documentTypeFromPointer $

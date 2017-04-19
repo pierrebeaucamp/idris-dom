@@ -1,24 +1,24 @@
-package web
+package dom
 
-brief      = "An Idris library to interact with Web APIs"
+brief      = "An Idris library to interact with the DOM"
 version    = 0.1.0
 readme     = README.md
 license    = Apache-2.0
 author     = Pierre Beaucamp
 maintainer = The blau.io contributors
-homepage   = https://github.com/blau-io/idris-web
-sourceloc  = https://github.com/blau-io/idris-web.git
-bugtracker = https://github.com/blau-io/idris-web/issues
+homepage   = https://github.com/blau-io/idris-dom
+sourceloc  = https://github.com/blau-io/idris-dom.git
+bugtracker = https://github.com/blau-io/idris-dom/issues
 
 sourcedir = src
-pkgs      = idrisscript
+pkgs      = idrisscript, html
 
 modules = API.Web.DOM.Document
+        , API.Web.DOM.DocumentType
         , API.Web.DOM.Element
         , API.Web.DOM.Event
         , API.Web.DOM.EventListener
         , API.Web.DOM.EventTarget
         , API.Web.DOM.Node
         , API.Web.DOM.NonElementParentNode
-        , API.Web.HTML.Document
-        , API.Web.HTML.Window
+        , API.Web.Infra.Namespaces

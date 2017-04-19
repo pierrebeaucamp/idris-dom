@@ -24,7 +24,7 @@ import API.Web.DOM.Element
 ||| The original interface specification can be found at
 ||| https://dom.spec.whatwg.org/#interface-node
 data Node : Type where
-  FromDocument     : Document     -> Node
+  FromDocument     : Document _   -> Node
   FromDocumentType : DocumentType -> Node
   FromElement      : Element      -> Node
 

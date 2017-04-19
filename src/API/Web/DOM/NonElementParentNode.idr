@@ -26,7 +26,7 @@ import IdrisScript
 ||| The original specification of NonElementParentNode can be found at
 ||| https://dom.spec.whatwg.org/#interface-nonelementparentnode
 data NonElementParentNode : Type where
-  FromDocument : API.Web.DOM.Document.Document -> NonElementParentNode
+  FromDocument : API.Web.DOM.Document.Document _ -> NonElementParentNode
 
 ||| Returns the first element within a *node*'s descendatns whose ID is
 ||| *elm*.
@@ -34,8 +34,8 @@ data NonElementParentNode : Type where
 ||| @ elm the ID of an element to fetch
 getElementById : NonElementParentNode -> (elm : String) -> JS_IO $ Maybe Element
 getElementById (FromDocument document) elm = case document of
-    (FromHTMLDocument (New _ ref)) => getElementById' ref elm
-    (New _  ref)                   => getElementById' ref elm
+    (FromHTMLDocument _ (New self)) => getElementById' self elm
+    (New _ self)                    => getElementById' self elm
   where
     getElementById' : (ref : JSRef) -> (elm : String) -> JS_IO $ Maybe Element
     getElementById' ref x = join $ elementFromPointer <$>

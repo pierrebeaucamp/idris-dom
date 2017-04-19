@@ -1,17 +1,20 @@
 .PHONY: docs
 
 default:
-	idris -p idrisscript -i src
-
-docs:
-	rm -rf docs;            \
-	idris --mkdoc web.ipkg; \
-	mv web_doc docs
+	idris -p idrisscript -p html -i src
 
 deps:
 	cd lib/IdrisScript;               \
 	idris --install idrisscript.ipkg; \
+	cd -;                             \
+	cd lib/idris-html;                \
+	idris --install html.ipkg;        \
 	cd -
 
+docs:
+	rm -rf docs;            \
+	idris --mkdoc dom.ipkg; \
+	mv dom_doc docs
+
 test:
-	idris --checkpkg web.ipkg
+	idris --checkpkg dom.ipkg
