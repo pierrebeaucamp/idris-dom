@@ -64,7 +64,7 @@ record AddEventListenerOptions where
 
 addEL : (ref : JSRef) -> (type : String) -> (listener : EventListener) ->
       (options : EventListenerOptions) -> JS_IO ()
-addEL ref type (New _ callback) options = ?rhs_2
+addEL ref type (New _ callback _ _ _ _) options = ?rhs_2
   -- jscall "%0.addEventListener(%1, %2, %3)"
   -- (JSRef -> JSFn (JSRef -> JS_IO()) -> JS_IO ())
 

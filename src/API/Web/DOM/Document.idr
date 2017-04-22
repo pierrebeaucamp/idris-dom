@@ -48,8 +48,8 @@ documentFromPointer self = case !maybeDocType of
 
       -- A document is said to be an *XML document* if its type is "`xml`", and
       -- an *HTML document* otherwise.
-      (New "xml" _ _) => pure $ Just $ New _ self
-      (New _     _ _) => pure $ Just $ FromHTMLDocument _ $
+      (New "xml" _ _ _) => pure $ Just $ New _ self
+      (New _     _ _ _) => pure $ Just $ FromHTMLDocument _ $
                          API.Web.HTML.Document.New self
 
   where

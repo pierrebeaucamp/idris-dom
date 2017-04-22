@@ -4,3 +4,6 @@
 [submodule "lib/idris-html"]
 	path = lib/idris-html
 	url = https://github.com/blau-io/idris-html.git
+[submodule "lib/idris-xhr"]
+	path = lib/idris-xhr
+	url = https://github.com/blau-io/idris-xhr.git

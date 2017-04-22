@@ -11,7 +11,7 @@ sourceloc  = https://github.com/blau-io/idris-dom.git
 bugtracker = https://github.com/blau-io/idris-dom/issues
 
 sourcedir = src
-pkgs      = idrisscript, html
+pkgs      = idrisscript, html, xhr
 
 modules = API.Web.DOM.Document
         , API.Web.DOM.DocumentType

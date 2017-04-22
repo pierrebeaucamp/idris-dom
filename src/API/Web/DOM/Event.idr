@@ -14,6 +14,8 @@
 
 module API.Web.DOM.Event
 
+import IdrisScript
+
 %access public export
 %default total
 
@@ -26,4 +28,7 @@ record Event where
   constructor New
   ||| The type of *Event*, e.g. "`click`", "`hashchange`", or "`submit`"
   type : String
+  ||| Non standard field for easier JS integration
+  self : JSRef
+
 

@@ -26,6 +26,7 @@ record DocumentType where
   name     : String
   publicId : String
   systemId : String
+  self     : JSRef
 
 ||| documentTypeFromPointer is a helper function for easily creating
 ||| DocumentTypes from JavaScript references.
@@ -42,6 +43,7 @@ documentTypeFromPointer ref = let
         (JSString ** pubId) => case !(IdrisScript.pack !systemIdRef) of
           (JSString ** sysId) => pure $ Just $
                                  New (fromJS name) (fromJS pubId) (fromJS sysId)
+                                      ref
           _                   => pure Nothing
         _                   => pure Nothing
       _                  => pure Nothing
