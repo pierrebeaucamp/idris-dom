@@ -168,14 +168,17 @@ accumulator states in the form of a list.</p>
 <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span> ->
 <a class="type" title="Builtins.Pair" href="Builtins.html#Builtins.Pair">(</a><a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span><a class="type" title="Builtins.Pair" href="Builtins.html#Builtins.Pair">,</a>
-<a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span><a class="type" title="Builtins.Pair" href="Builtins.html#Builtins.Pair">)</a></span></dt><dd><p>The partition function takes a predicate a list and returns the pair of lists of elements which do and do not satisfy the predicate, respectively; e.g.,</p>
+<a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span><a class="type" title="Builtins.Pair" href="Builtins.html#Builtins.Pair">)</a></span></dt><dd><p>The partition function takes a predicate a list and returns the pair of<br />
+lists of elements which do and do not satisfy the predicate, respectively;<br />
+e.g.,</p>
 <pre class="idris"><code>partition (&lt;3) [0, 1, 2, 3, 4, 5]
 </code></pre>
 </dd><dt id="Prelude.List.nubBy"><span class="name function" title="Prelude.List.nubBy">nubBy</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="implicit boundvar" title="">a</span> ->
 <span class="implicit boundvar" title="">a</span> ->
 <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span> ->
-<a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span></span></dt><dd><p>The nubBy function behaves just like nub, except it uses a user-supplied equality predicate instead of the overloaded == function.</p>
+<a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span></span></dt><dd><p>The nubBy function behaves just like nub, except it uses a user-supplied<br />
+equality predicate instead of the overloaded == function.</p>
 </dd><dt id="Prelude.List.nub"><span class="name function" title="Prelude.List.nub">nub</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Prelude.Interfaces.Eq" href="Prelude.Interfaces.html#Prelude.Interfaces.Eq">Eq</a> <span class="implicit boundvar" title="">a</span> =>
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span> ->
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span></span></dt><dd><p>O(n^2). The nub function removes duplicate elements from a list. In<br />
@@ -299,7 +302,8 @@ of the input lists.</p>
 </dd><dt id="Prelude.List.isInfixOf"><span class="name function" title="Prelude.List.isInfixOf">isInfixOf</span><span class="word">&nbsp;:&nbsp;</span><span class="signature"><a class="type" title="Prelude.Interfaces.Eq" href="Prelude.Interfaces.html#Prelude.Interfaces.Eq">Eq</a> <span class="implicit boundvar" title="">a</span> =>
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span> ->
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span> ->
-<a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd><p>The isInfixOf function takes two lists and returns True iff the first list is contained, wholly and intact, anywhere within the second.</p>
+<a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a></span></dt><dd><p>The isInfixOf function takes two lists and returns True iff the first list<br />
+is contained, wholly and intact, anywhere within the second.</p>
 <pre class="idris"><code>isInfixOf ['b','c'] ['a', 'b', 'c', 'd']
 </code></pre>
 <pre class="idris"><code>isInfixOf ['b','d'] ['a', 'b', 'c', 'd']
@@ -413,7 +417,8 @@ in terms of foldr</p>
 </dd><dt id="Prelude.List.filter"><span class="name function" title="Prelude.List.filter">filter</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="implicit boundvar" title="">a</span> ->
 <a class="type" title="Prelude.Bool.Bool" href="Prelude.Bool.html#Prelude.Bool.Bool">Bool</a>) ->
 <a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span> ->
-<a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span></span></dt><dd><p>filter, applied to a predicate and a list, returns the list of those elements that satisfy the predicate; e.g.,</p>
+<a class="type" title="Prelude.List.List" href="Prelude.List.html#Prelude.List.List">List</a> <span class="implicit boundvar" title="">a</span></span></dt><dd><p>filter, applied to a predicate and a list, returns the list of those<br />
+elements that satisfy the predicate; e.g.,</p>
 <pre class="idris"><code>filter (&lt; 3) [Z, S Z, S (S Z), S (S (S Z)), S (S (S (S Z)))]
 </code></pre>
 </dd><dt id="Prelude.List.elemIndicesBy"><span class="name function" title="Prelude.List.elemIndicesBy">elemIndicesBy</span><span class="word">&nbsp;:&nbsp;</span><span class="signature">(<span class="implicit boundvar" title="">a</span> ->

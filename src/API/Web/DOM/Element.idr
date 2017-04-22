@@ -27,7 +27,7 @@ import IdrisScript
 ||| https://dom.spec.whatwg.org/#interface-element
 data Element : Type where
   FromHTMLElement : HTMLElement          -> Element
-  New             : (localName : String)-> Element
+  New             : (localName : String) -> (self : JSRef) -> Element
 
 ||| elementFromPointer is a helper function for easily creating Elements from
 ||| JavaScript references.
@@ -42,7 +42,7 @@ elementFromPointer ref = case !maybeNamespace of
         API.Web.Infra.Namespaces.html => case !(htmlElementFromPointer ref) of
           Nothing            => pure Nothing
           (Just htmlElement) => pure $ Just $ FromHTMLElement htmlElement
-        _                             => pure $ Just $ New localName
+        _                             => pure $ Just $ New localName ref
   where
     maybeNamespace : JS_IO $ Maybe String
     maybeNamespace = let
